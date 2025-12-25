@@ -292,8 +292,10 @@ class LinuxDoBrowser:
 
     def send_notifications(self, browse_enabled):
         status_msg = "✅每日登录成功"
-        if browse_enabled:
+        if BROWSE_ENABLED:
             status_msg += " + 浏览任务完成"
+            
+        status_msg += f" ( {USERNAME} )" 
 
         if GOTIFY_URL and GOTIFY_TOKEN:
             try:
